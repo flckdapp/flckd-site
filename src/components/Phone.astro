@@ -1,0 +1,12 @@
+---
+interface Props {
+  readonly image: string;
+  readonly alt: string;
+  readonly eager?: boolean;
+  readonly class?: string;
+}
+const { image, alt, eager = false, class: className = '' } = Astro.props;
+---
+<div class:list={['phone', className]}>
+  <img src={`/images/${image}.webp`} srcset={`/images/${image}-400.webp 400w, /images/${image}.webp 660w`} sizes="(max-width: 900px) 200px, 260px" alt={alt} width="660" height="1434" loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" />
+</div>

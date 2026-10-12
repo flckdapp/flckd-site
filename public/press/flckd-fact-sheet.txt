@@ -1,0 +1,34 @@
+You're Flocked
+==============
+
+Website: https://flckd.app
+Source: https://github.com/flckdapp/flckd
+Beta (TestFlight): https://testflight.apple.com/join/PmRqmMvb
+Questions: https://github.com/flckdapp/flckd/discussions/categories/q-a
+Bug reports: https://github.com/flckdapp/flckd/issues
+
+SHORT DESCRIPTION
+You're Flocked is an iPhone app that shows nearby surveillance cameras, warns you as you approach, and plans routes that pass fewer of them. Camera locations come from community-contributed map data. Route planning runs on the phone.
+
+KEY FACTS
+- Appears as FLCKD on the iPhone home screen, where the full name does not fit.
+- iPhone, iOS 17 or later, currently a public beta installed through TestFlight. Android is planned, not currently available.
+- Camera map, proximity alerts, configurable camera filters and alert distances.
+- On-device camera-avoidance routing using downloadable region packs.
+- No accounts, analytics, telemetry or stored location history in the app.
+- Inspired by DeFlock; uses DeFlock and OpenStreetMap camera data.
+- Open source at the repository above; self-hostable routing-pack builder and tile endpoint.
+
+IMPORTANT CONTEXT
+Camera coverage depends on community contributions. You're Flocked cannot guarantee that all cameras are mapped or that a route avoids surveillance. Routing works offline after a region is downloaded; fresh camera queries, place searches and Apple map imagery still use network services. Consult the full privacy document for what leaves the device:
+https://github.com/flckdapp/flckd/blob/main/PRIVACY.md
+
+You're Flocked is independent and is not affiliated with or endorsed by Flock Safety.
+The app is in public beta via the TestFlight link above. No App Store listing, price or launch date is asserted in this fact sheet.
+
+ASSETS
+flckd-app-icon.png: original 1024 x 1024 iOS app icon.
+flckd-camera-map.png: original 1320 x 2868 app screenshot.
+flckd-routing.png: original 1320 x 2868 app screenshot.
+flckd-alerts.png: original 1320 x 2868 app screenshot.
+Screenshots show an example app state, not live camera coverage or a promise of routing performance. Keep visible map attribution intact when reproducing screenshots. Third-party map data, marks and imagery retain their respective rights.

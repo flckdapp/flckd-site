@@ -1,0 +1,40 @@
+---
+interface Props { readonly text: string; readonly label: string; readonly code?: boolean; }
+const { text, label, code = false } = Astro.props;
+---
+<div class:list={['copy-block', { 'code-block': code }]}>
+  <div class="copy-toolbar"><span>{label}</span><button type="button" data-copy aria-label={`Copy ${label}`} hidden>Copy</button></div>
+  {code ? <pre tabindex="0" aria-label={label}><code data-copy-content>{text}</code></pre> : <p data-copy-content>{text}</p>}
+  <span class="copy-status" role="status" aria-live="polite"></span>
+</div>
+<script>
+  document.addEventListener('astro:page-load', () => document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    if (button.dataset['bound']) return;
+    button.dataset['bound'] = 'true';
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      const block = button.closest('.copy-block');
+      const content = block?.querySelector('[data-copy-content]');
+      const status = block?.querySelector('.copy-status');
+      if (!content || !status) return;
+      try {
+        await navigator.clipboard.writeText(content.textContent ?? '');
+        status.textContent = 'Copied to clipboard.';
+        button.textContent = 'Copy again';
+      } catch (error) {
+        if (!(error instanceof Error)) throw error;
+        status.textContent = 'Clipboard unavailable. Select the text above to copy it.';
+      }
+    });
+  }));
+</script>
+<style>
+  .copy-block { background: var(--pale); border-radius: 8px; padding: 24px; margin-block: 24px; }
+  .copy-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; font-size: 12px; color: var(--muted); }
+  .copy-toolbar button { padding: 8px 16px; min-height: 44px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 4px; cursor: pointer; }
+  .copy-toolbar button:hover { border-color: var(--accent); }
+  .copy-block p { margin: 0; }
+  pre { margin: 0; overflow-x: auto; font: 13px/1.8 var(--mono); padding-bottom: 8px; }
+  .copy-status { display: block; font-size: 12px; color: var(--muted); }
+  .copy-status:not(:empty) { margin-top: 12px; }
+</style>

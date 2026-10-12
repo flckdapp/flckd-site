@@ -1,0 +1,21 @@
+services:
+  server:
+    image: ghcr.io/flckdapp/flckd/server:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8642:8642"
+      - "8080:8080"
+    volumes:
+      - data:/data
+      - site:/site
+    stop_grace_period: 30s
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD-SHELL, "curl -fsS http://127.0.0.1:8080/health && curl -fsS http://127.0.0.1:8642/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+volumes:
+  data:
+  site:

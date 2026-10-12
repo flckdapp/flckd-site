@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2022",
+    "moduleResolution": "Bundler",
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}

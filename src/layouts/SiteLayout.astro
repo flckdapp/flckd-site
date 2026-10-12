@@ -1,0 +1,54 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/public-sans';
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+interface Props { readonly title?: string; readonly description?: string; }
+const { title = 'You’re Flocked · You’re being watched.', description = site.description } = Astro.props;
+const origin = Astro.site ?? new URL('https://flckd.app');
+const canonical = new URL(Astro.url.pathname, origin);
+const links = [{ href: '/', path: '/', label: 'The app' }, { href: '/hosting/', path: '/hosting/', label: 'Self-hosting' }, { href: '/privacy/', path: '/privacy/', label: 'Privacy' }, { href: '/press/', path: '/press/', label: 'Press kit' }];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f3f3ef" />
+    <link rel="icon" type="image/webp" href="/images/app-icon.webp" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="You’re Flocked" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/images/social.jpg', origin)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="You’re being watched. You’re Flocked: camera awareness for iPhone." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <slot name="head" />
+    <ClientRouter />
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- THESIS: Camera awareness without the cybersecurity costume. OWN-WORLD: light cartographic paper, generous Fraunces, warm red, real app screens. STORY: see the cameras, understand local processing, get the app or host its packs. FIRST VIEWPORT: oversized serif at left, overlapping screenshot phones at right, a clear app action. FORM: supplied Butterkit identity expanded into an approachable editorial website. FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md. -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap" transition:name="header" transition:animate="none">
+      <a class="brand" href="/" aria-label="You’re Flocked home" transition:persist="brand"><img src="/images/app-icon.webp" width="36" height="36" alt="" /><span>You’re Flocked<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation">
+        {links.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.path ? 'page' : undefined}>{link.label}</a>)}
+      </nav>
+      <a class="header-github" href={site.github} target="_blank" rel="noopener" aria-label="You’re Flocked on GitHub"><Icon name="github" /><span>GitHub</span><Icon name="external" /></a>
+    </header>
+    <main id="main" transition:name="main"><slot /></main>
+    <footer class="site-footer wrap" transition:name="footer" transition:animate="none">
+      <div><a class="brand" href="/"><span>You’re Flocked<span class="brand-dot">.</span></span></a><p>A little more awareness. A little less being watched.</p></div>
+      <nav aria-label="Footer navigation"><a href={site.github} target="_blank" rel="noopener">GitHub</a><a href="/privacy/">Privacy</a><a href="/hosting/">Self-hosting</a><a href="/press/">Press kit</a></nav>
+      <div class="footer-bottom"><span>Independent and open source. Made with <Icon name="heart" /><span class="visually-hidden">love</span> in Oklahoma.</span><span>Inspired by <a href="https://deflock.me" target="_blank" rel="noopener">DeFlock</a>. Built on <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.</span></div>
+    </footer>
+  </body>
+</html>
