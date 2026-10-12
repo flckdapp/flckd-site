@@ -1,5 +1,6 @@
 import sharp from 'sharp';
-import { spawnSync } from 'node:child_process';
+import { zipSync } from 'fflate';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const press = fileURLToPath(new URL('../public/press/', import.meta.url));
@@ -17,7 +18,6 @@ for (const [source, name] of screenshots) {
 await sharp(press + 'flckd-app-icon.png').resize({ width: 128 }).webp({ quality: 90 }).toFile(`${images}app-icon.webp`);
 
 const bundle = ['flckd-app-icon.png', ...screenshots.map(([source]) => source), 'flckd-fact-sheet.txt'];
-const zip = spawnSync('zip', ['-q', '-j', 'flckd-press-kit.zip', ...bundle], { cwd: press, stdio: 'inherit' });
-if (zip.error) throw zip.error;
-if (zip.status !== 0) throw new Error(`zip exited with ${zip.status}`);
+const entries = Object.fromEntries(bundle.map((file) => [file, readFileSync(press + file)]));
+writeFileSync(press + 'flckd-press-kit.zip', zipSync(entries, { level: 6 }));
 console.log(`derived ${screenshots.length * 2 + 1} images and the press kit from public/press/`);
