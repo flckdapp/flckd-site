@@ -12,7 +12,7 @@ import '../styles/home.css';
       <div class="hero-copy">
         <h1>You’re being<br /><em>watched.</em></h1>
         <p class="hero-intro">There are cameras all along your drive.<br class="desktop-break" /> You’re Flocked helps you see them coming.</p>
-        <p class="hero-description">See nearby cameras, get a heads-up as you approach, and find a route past fewer of them. Right on your iPhone.</p>
+        <p class="hero-description">See nearby cameras, get a heads-up as you approach, and follow turn-by-turn directions on a route past fewer of them. Right on your iPhone.</p>
         <div class="actions"><a class="button" href="#get-flckd">Join the beta <Icon name="arrow" /></a><a class="text-link" href="#the-app">Take a look <span aria-hidden="true">↓</span></a></div>
         <div class="hero-note"><Icon name="check" /><span>No accounts. No tracking. Open source.</span></div>
       </div>
@@ -52,6 +52,20 @@ import '../styles/home.css';
     </div>
   </section>
 
+  <section class="feature-section wrap" aria-labelledby="nav-heading">
+    <div class="feature-art nav-art">
+      <Phone image="navigation" alt="Turn-by-turn guidance showing a right turn in 700 feet along a teal route, with a warning for a license plate reader 516 feet ahead on the left." />
+      <span class="art-caption">Turn-by-turn guidance, with a plate reader coming up on the left.</span>
+    </div>
+    <div class="feature-copy">
+      <h2 id="nav-heading">Directions that<br /><em>keep their distance.</em></h2>
+      <p>Once you’ve picked a route, You’re Flocked guides you along it turn by turn. The next turn stays at the top of the screen and on your lock screen, and the app speaks up when a camera ahead can see the car.</p>
+      <p>Voice guidance reads out each turn as it comes up, so your eyes can stay on the road.</p>
+      <p>Miss a turn and it plans a new route the same way it planned the first: on your phone, from your region pack, still steering around the cameras it knows about. Your position never leaves the phone.</p>
+      <ul class="check-list"><li><Icon name="check" />Spoken turn-by-turn directions</li><li><Icon name="check" />The next turn on your lock screen</li><li><Icon name="check" />Reroutes that still avoid cameras</li></ul>
+    </div>
+  </section>
+
   <section class="privacy-section">
     <div class="privacy-grid wrap">
       <div class="privacy-heading"><Icon name="shield" /><h2>Your phone should<br />look out for you.<br /><em>Not keep tabs on you.</em></h2></div>
@@ -68,6 +82,7 @@ import '../styles/home.css';
     <h2 id="faq-heading">A few things<br />worth knowing.</h2>
     <div class="faq-list">
       <details><summary>Does it know about every camera?<span aria-hidden="true">+</span></summary><p>No. Camera locations are contributed by people, so coverage depends on what’s been mapped in your area. Missing or outdated locations are possible. You’re Flocked is an awareness tool, not a guarantee that you won’t be recorded.</p></details>
+      <details><summary>Does it give directions, or do I need another maps app?<span aria-hidden="true">+</span></summary><p>It gives directions itself. Start a route and You’re Flocked guides you turn by turn, with spoken prompts, camera alerts and the next turn on your lock screen. If you leave the route, it plans a new one on your phone.</p></details>
       <details><summary>Can I use it without an internet connection?<span aria-hidden="true">+</span></summary><p>Route calculation works offline once you’ve downloaded the right region pack. Alerts keep working from camera data already on your phone. Fresh camera lookups, place searches, and Apple map imagery still need a connection.</p></details>
       <details><summary>What phones does it work on?<span aria-hidden="true">+</span></summary><p>The current app is an iPhone beta, installed through TestFlight, and needs iOS 17 or later. Android is planned, but isn’t available yet.</p></details>
       <details><summary>Do I need to run a server?<span aria-hidden="true">+</span></summary><p>No. Out of the box, the app downloads its road data from tiles.flckd.app. Self-hosting is for people who’d rather serve that data from their own machine. Either way, routes are calculated on your phone. <a href="/hosting/">Read the self-hosting guide.</a></p></details>

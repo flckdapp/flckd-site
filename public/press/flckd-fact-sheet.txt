@@ -8,13 +8,14 @@ Questions: https://github.com/flckdapp/flckd/discussions/categories/q-a
 Bug reports: https://github.com/flckdapp/flckd/issues
 
 SHORT DESCRIPTION
-You're Flocked is an iPhone app that shows nearby surveillance cameras, warns you as you approach, and plans routes that pass fewer of them. Camera locations come from community-contributed map data. Route planning runs on the phone.
+You're Flocked is an iPhone app that shows nearby surveillance cameras, warns you as you approach, and plans routes that pass fewer of them, with spoken turn-by-turn directions along the way. Camera locations come from community-contributed map data. Route planning and guidance run on the phone.
 
 KEY FACTS
 - Appears as FLCKD on the iPhone home screen, where the full name does not fit.
 - iPhone, iOS 17 or later, currently a public beta installed through TestFlight. Android is planned, not currently available.
 - Camera map, proximity alerts, configurable camera filters and alert distances.
 - On-device camera-avoidance routing using downloadable region packs.
+- On-device turn-by-turn guidance with voice directions, the next turn on the lock screen, spoken camera alerts, and reroutes that still avoid cameras.
 - No accounts, analytics, telemetry or stored location history in the app.
 - Inspired by DeFlock; uses DeFlock and OpenStreetMap camera data.
 - Open source at the repository above; self-hostable routing-pack builder and tile endpoint.
@@ -31,4 +32,5 @@ flckd-app-icon.png: original 1024 x 1024 iOS app icon.
 flckd-camera-map.png: original 1320 x 2868 app screenshot.
 flckd-routing.png: original 1320 x 2868 app screenshot.
 flckd-alerts.png: original 1320 x 2868 app screenshot.
+flckd-navigation.png: original 1320 x 2868 app screenshot of turn-by-turn guidance.
 Screenshots show an example app state, not live camera coverage or a promise of routing performance. Keep visible map attribution intact when reproducing screenshots. Third-party map data, marks and imagery retain their respective rights.

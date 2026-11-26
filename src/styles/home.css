@@ -26,6 +26,8 @@
 .feature-copy .fine-print { margin-top: 16px; max-width: 370px; }
 .reverse .feature-art { order: 2; }
 .route-art .phone { transform: rotate(6deg); }
+.nav-art { background: var(--mint); }
+.nav-art .phone { transform: rotate(-5deg); }
 .privacy-section { margin-block: 48px 0; background: var(--slate); color: var(--paper); padding-block: 80px; }
 .privacy-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 96px; }
 .privacy-heading > svg { width: 32px; height: 32px; margin-bottom: 24px; color: var(--accent-bright); }

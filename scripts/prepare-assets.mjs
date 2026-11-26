@@ -9,6 +9,7 @@ const screenshots = [
   ['flckd-camera-map.png', 'camera-map'],
   ['flckd-routing.png', 'routing'],
   ['flckd-alerts.png', 'alerts'],
+  ['flckd-navigation.png', 'navigation'],
 ];
 
 for (const [source, name] of screenshots) {
